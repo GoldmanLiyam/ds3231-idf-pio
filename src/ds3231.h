@@ -4,17 +4,19 @@
 #include "esp_err.h"
 #include <time.h>
 
-#define DS3231_ADDR 0x68
-
 typedef struct {
     i2c_master_bus_handle_t bus;
     i2c_master_dev_handle_t dev;
+    uint8_t i2c_addr;
 } ds3231_t;
 
 /**
  * @brief Initialize DS3231 on given I2C bus
+ * @param rtc Pointer to DS3231 handle
+ * @param bus Existing I2C bus handle
+ * @param addr I2C address of DS3231 (usually 0x68)
  */
-esp_err_t ds3231_init(ds3231_t *rtc, i2c_master_bus_handle_t bus);
+esp_err_t ds3231_init(ds3231_t *rtc, i2c_master_bus_handle_t bus, uint8_t addr);
 
 /**
  * @brief Set time on DS3231 (UTC)
