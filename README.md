@@ -54,6 +54,8 @@ GND → GND
 ## Usage Example
 #include "ds3231.h"
 
+#define DS3231_ADDR 0x68
+
 ds3231_t rtc;
 
 void app_main(void) {
@@ -68,7 +70,7 @@ void app_main(void) {
     ESP_ERROR_CHECK(i2c_new_master_bus(&bus_cfg, &bus));
 
     // Initialize DS3231
-    ESP_ERROR_CHECK(ds3231_init(&rtc, bus));
+    ESP_ERROR_CHECK(ds3231_init(&rtc, bus, DS3231_ADDR));
 
     // Set time
     struct tm set_time = {
