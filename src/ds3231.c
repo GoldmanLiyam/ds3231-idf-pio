@@ -6,12 +6,13 @@ static const char *TAG = "DS3231";
 static uint8_t bcd2dec(uint8_t val) { return (val >> 4) * 10 + (val & 0x0F); }
 static uint8_t dec2bcd(uint8_t val) { return ((val / 10) << 4) | (val % 10); }
 
-esp_err_t ds3231_init(ds3231_t *rtc, i2c_master_bus_handle_t bus) {
+esp_err_t ds3231_init(ds3231_t *rtc, i2c_master_bus_handle_t bus, uint8_t addr) {
     if (!rtc || !bus) return ESP_ERR_INVALID_ARG;
     rtc->bus = bus;
+    rtc->i2c_addr = addr;
 
     i2c_device_config_t dev_cfg = {
-        .device_address = DS3231_ADDR,
+        .device_address = addr,
         .scl_speed_hz = 100000,
     };
 
@@ -49,7 +50,7 @@ esp_err_t ds3231_get_time(ds3231_t *rtc, struct tm *time) {
     time->tm_wday = bcd2dec(data[3]) - 1;
     time->tm_mday = bcd2dec(data[4]);
     time->tm_mon  = bcd2dec(data[5]) - 1;
-    time->tm_year = bcd2dec(data[6]) + 100; // back to struct tm epoch
+    time->tm_year = bcd2dec(data[6]) + 100;
 
     return ESP_OK;
 }
