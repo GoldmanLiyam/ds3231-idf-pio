@@ -35,7 +35,7 @@ platform = espressif32
 framework = espidf
 board = esp32dev
 lib_deps = 
-    https://github.com/<your-user>/ds3231
+    https://github.com/GoldmanLiyam/ds3231
 
 ## Wiring
 
