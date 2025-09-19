@@ -1,10 +1,10 @@
-#DS3231 Library for ESP-IDF 5.x
+# DS3231 Library for ESP-IDF 5.x
 
 Minimal DS3231 RTC library for ESP32 using the new I2C Master driver (i2c_master.h).
 This library provides simple APIs to initialize the DS3231, set the current time, and read the current time.
 It is designed for use in PlatformIO with ESP-IDF ≥ 5.0.
 
-##Features
+## Features
 
 Written for ESP-IDF 5.x I2C Master API
 
@@ -18,7 +18,7 @@ Simple, minimal, and easy to extend
 
 Suitable for projects like data loggers, clocks, alarms, etc.
 
-##Requirements
+## Requirements
 
 ESP32 board
 
@@ -26,7 +26,7 @@ ESP-IDF 5.x (works best via PlatformIO)
 
 DS3231 RTC module connected via I2C
 
-##Installation
+## Installation
 
 Clone or copy this library into your lib/ folder in a PlatformIO project, or add it as a git dependency in your platformio.ini:
 
@@ -37,7 +37,7 @@ board = esp32dev
 lib_deps = 
     https://github.com/<your-user>/ds3231
 
-##Wiring
+## Wiring
 
 Typical I2C wiring (ESP32 default):
 
@@ -51,7 +51,7 @@ GND → GND
 
 (You can configure other pins in i2c_master_bus_config_t.)
 
-##Usage Example
+## Usage Example
 #include "ds3231.h"
 
 ds3231_t rtc;
@@ -92,7 +92,7 @@ void app_main(void) {
     }
 }
 
-##Notes
+## Notes
 
 Time is handled in UTC using standard struct tm.
 
