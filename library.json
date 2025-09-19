@@ -5,12 +5,12 @@
   "keywords": ["ds3231", "rtc", "i2c", "esp-idf"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/<your-user>/ds3231"
+    "url": "https://github.com/GoldmanLiyam/ds3231"
   },
   "authors": [
     {
       "name": "Your Name",
-      "url": "https://github.com/<your-user>"
+      "url": "https://github.com/GoldmanLiyam"
     }
   ],
   "frameworks": "espidf",
